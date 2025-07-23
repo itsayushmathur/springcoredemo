@@ -120,3 +120,27 @@ public class TennisCoach implements Coach { ... }
 ```
 - If no @Qualifier is specified, Spring will inject the @Primary bean.
 ### *Note:Qualifier will have a higher priority than Primary.
+
+---
+## 💤 Lazy Initialization
+
+By default, Spring creates all beans **eagerly at startup**.  
+With **Lazy Initialization**, beans are created **only when needed**.
+
+### When is a Lazy Bean Initialized?
+- When it is **required for dependency injection**
+- When it is **explicitly requested**
+
+### How to Enable:
+Add the `@Lazy` annotation to the class:
+
+```java
+@Lazy
+@Component
+public class LazyService { ... }
+```
+- This helps reduce startup time and resource usage for unused beans.
+- For global lazy initialization: set : "spring.main.lazy-initialization = true" in the application.properties file.
+
+---
+
