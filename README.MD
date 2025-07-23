@@ -119,3 +119,4 @@ When multiple beans of the same type are available, Spring uses the one marked w
 public class TennisCoach implements Coach { ... }
 ```
 - If no @Qualifier is specified, Spring will inject the @Primary bean.
+### *Note:Qualifier will have a higher priority than Primary.
