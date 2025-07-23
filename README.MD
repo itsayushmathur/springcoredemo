@@ -160,3 +160,16 @@ Spring provides several **bean scopes** that define how and when a bean is creat
 | `websocket`  | One instance per WebSocket session                                          |
 
 ---
+## 🔄 Spring Bean Lifecycle Methods
+
+Spring provides hooks to run custom logic **during a bean's lifecycle** — from creation to destruction.
+
+### 🛠 Common Lifecycle Methods:
+
+| Phase         | Method                         | Description                                         |
+|---------------|--------------------------------|-----------------------------------------------------|
+| Initialization | `@PostConstruct`               | Called **after the bean is created and dependencies are injected** |
+| Destruction    | `@PreDestroy`                  | Called **just before the bean is destroyed**        |
+
+---
+
