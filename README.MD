@@ -144,3 +144,19 @@ public class LazyService { ... }
 
 ---
 
+## 📦 Spring Bean Scopes
+
+Spring provides several **bean scopes** that define how and when a bean is created and shared within the application context.
+
+### 🔁 Common Scopes:
+
+| Scope        | Description                                                                 |
+|--------------|-----------------------------------------------------------------------------|
+| `singleton`  | (Default) A single shared instance per Spring container                     |
+| `prototype`  | A new instance is created **every time** the bean is requested              |
+| `request`    | One instance per HTTP request (only for web-aware apps)                     |
+| `session`    | One instance per HTTP session (web applications)                            |
+| `application`| One instance per **ServletContext** (shared across sessions)                |
+| `websocket`  | One instance per WebSocket session                                          |
+
+---
