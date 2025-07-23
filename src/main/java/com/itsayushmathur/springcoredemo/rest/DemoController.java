@@ -10,15 +10,24 @@ public class DemoController {
 
     private Coach myCoach;
 
+//    //Constructor Injection:
+//    @Autowired
+//    DemoController(Coach theCoach){
+//        myCoach = theCoach;
+//    }
+
+    //Setter Injection:
     @Autowired
-    DemoController(Coach theCoach){
+    public void setCoach(Coach theCoach){
         myCoach = theCoach;
     }
-
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){
         return myCoach.getDailyWorkout();
     }
+
+
+
 }
 
 

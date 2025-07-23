@@ -72,3 +72,17 @@ For Dependency Injection, Spring supports **autowiring**:
 - `@EnableAutoConfiguration` – Enables Spring Boot's auto-configuration support
 - `@ComponentScan` – Scans the current and sub-packages for Spring components
 - `@Configuration` – Allows registering beans using `@Bean` or importing other config classes
+
+---
+## 💉 Injection Types: Which to Use When?
+
+### 🔧 Constructor Injection
+
+- Use when you have **required dependencies**
+- Prevents the creation of the object without necessary dependencies
+- **Recommended** by the Spring team as the **first choice**
+
+### 🛠 Setter Injection
+
+- Use when you have **optional dependencies**
+- If the dependency is not provided, your application can supply **default logic**
