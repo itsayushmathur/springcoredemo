@@ -77,12 +77,45 @@ For Dependency Injection, Spring supports **autowiring**:
 ## 💉 Injection Types: Which to Use When?
 
 ### 🔧 Constructor Injection
-
 - Use when you have **required dependencies**
-- Prevents the creation of the object without necessary dependencies
-- **Recommended** by the Spring team as the **first choice**
+- Prevents the class from being instantiated without its dependencies
+- **Recommended by the Spring team** as the **first choice**
 
 ### 🛠 Setter Injection
-
 - Use when you have **optional dependencies**
-- If the dependency is not provided, your application can supply **default logic**
+- Allows the app to fall back to **default logic** if the dependency is not provided
+
+### 🚫 Field Injection
+- **NOT recommended**
+- Makes **unit testing difficult** due to lack of constructor/setter access  
+
+---
+## 🏷️ `@Qualifier` Annotation 
+
+When multiple beans of the same type exist, Spring needs help deciding **which one to inject**.  
+Use the `@Qualifier` annotation to specify **exactly which bean** should be injected.
+- Works with @Autowired
+- Helps avoid NoUniqueBeanDefinitionException
+
+### Example:
+```java
+@Qualifier("mySpecialCoach")
+private Coach coach;
+```
+---
+## ⭐ `@Primary` Annotation 
+
+When multiple beans of the same type are available, Spring uses the one marked with `@Primary` **by default** during dependency injection.
+
+### Key Points:
+- Used alongside `@Component`, `@Service`, etc.
+- Helps avoid ambiguity **without requiring `@Qualifier`**
+- Only one bean of a type should be marked as `@Primary`
+
+### Example:
+```java
+@Primary
+@Component
+public class TennisCoach implements Coach { ... }
+```
+- If no @Qualifier is specified, Spring will inject the @Primary bean.

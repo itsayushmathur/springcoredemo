@@ -2,6 +2,7 @@ package com.itsayushmathur.springcoredemo.rest;
 
 import com.itsayushmathur.springcoredemo.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,17 +11,17 @@ public class DemoController {
 
     private Coach myCoach;
 
-//    //Constructor Injection:
-//    @Autowired
-//    DemoController(Coach theCoach){
-//        myCoach = theCoach;
-//    }
-
-    //Setter Injection:
+    //Constructor Injection:
     @Autowired
-    public void setCoach(Coach theCoach){
+    DemoController( @Qualifier("cricketCoach") Coach theCoach){
         myCoach = theCoach;
     }
+
+//    //Setter Injection:
+//    @Autowired
+//    public void setCoach(Coach theCoach){
+//        myCoach = theCoach;
+//    }
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){
         return myCoach.getDailyWorkout();
